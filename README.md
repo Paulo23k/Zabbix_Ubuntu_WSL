@@ -24,7 +24,7 @@ Atualize os pacotes e instale as dependências necessárias:
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y wget gnupg2 software-properties-common
 ````
-##Adicionar o Repositório Zabbix
+## Adicionar o Repositório Zabbix
 
 Importe a chave GPG do Zabbix:
 ```
@@ -35,11 +35,11 @@ Em seguida, atualize a lista de pacotes:
 ```
 sudo apt update
 ```
-##Instalar o Servidor Zabbix, Frontend e Agente
+## Instalar o Servidor Zabbix, Frontend e Agente
 ```
 sudo apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 ```
-Configurar o Banco de Dados
+## Configurar o Banco de Dados
 
 Instale o MariaDB:
 ```
@@ -61,11 +61,11 @@ GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-##Importar o Esquema do Banco de Dados
+## Importar o Esquema do Banco de Dados
 ```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
-##Configurar o Servidor Zabbix
+## Configurar o Servidor Zabbix
 
 Edite o arquivo de configuração do Zabbix:
 ```
@@ -76,14 +76,14 @@ Encontre a linha DBPassword e adicione a senha do banco de dados que você criou
 DBPassword=sua.senha
 (Não esqueça de descomentar a linha.)
 ```
-##Iniciar os Serviços
+## Iniciar os Serviços
 
 Inicie os serviços do Zabbix:
 ```
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 ```
-Acessar o Frontend do Zabbix
+## Acessar o Frontend do Zabbix
 ```
 No navegador, acesse http://seuip/zabbix ou seuip/zabbix
 ```
@@ -93,7 +93,7 @@ locale-gen pt_BR.UTF-8
 update-locale
 sudo systemctl restart apache2
 ```
-##Comandos Extras
+## Comandos Extras
 Para visualizar os usuários no MariaDB:
 ```
 SELECT user, host FROM mysql.user;
