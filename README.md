@@ -65,7 +65,7 @@ EXIT;
 ```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
-## Configurar o Servidor Zabbix
+## Configurar o Zabbix
 
 Edite o arquivo de configuração do Zabbix:
 ```
